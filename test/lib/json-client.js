@@ -1,5 +1,5 @@
 require('dotenv').config()
-const createWildfireClient = require('../../src').create
+const createWildfireClient = require('../../dist').create
 
 module.exports = createWildfireClient({
   apikey: process.env.API_KEY,
