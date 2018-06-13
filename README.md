@@ -1,4 +1,4 @@
-# wildfire-client
+# wildfire-client [![Build Status](https://travis-ci.org/abelmokadem/wildfire-client.svg?branch=master)](https://travis-ci.org/abelmokadem/wildfire-client)
 
 Node.JS 
 [wildfire api](https://www.paloaltonetworks.com/documentation/71/wildfire/wf_api/get-started-with-the-wildfire-api) 
