@@ -1,0 +1,46 @@
+{
+  "name": "wildfire-client",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "wildfire": "bin/wildfire.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist --copy-files",
+    "dev": "babel src -d dist --copy-files -w",
+    "clean": "rimraf dist",
+    "init": "mkdirp dist",
+    "prebuild": "npm run clean && npm run init",
+    "prepublish": "npm run build && npm test",
+    "tape": "tape -r babel-register 'test/**/*.js'",
+    "test": "standard && npm run tape"
+  },
+  "standard": {
+    "ignore": [
+      "dist/",
+      "src/commands/editor/dist/"
+    ]
+  },
+  "keywords": [],
+  "author": "Ash Belmokadem",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "dotenv": "^6.0.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "standard": "^11.0.0",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "deepmerge": "^2.1.1",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "util.promisify": "^1.0.0",
+    "xml2js": "^0.4.19"
+  }
+}
