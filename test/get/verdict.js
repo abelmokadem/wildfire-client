@@ -34,7 +34,7 @@ tape.test(
 tape.test(
   "[json-client] /get/verdict: valid hash should return a proper response",
   async t => {
-    const actual = await jsonClient.getReport({
+    const actual = await jsonClient.getVerdict({
       hash: "afe6b95ad95bc689c356f34ec8d9094c495e4af57c932ac413b65ef132063acc"
     });
 
@@ -46,7 +46,7 @@ tape.test(
 tape.test(
   "[xml-client] /get/verdict: valid hash should return a proper response",
   async t => {
-    const actual = await xmlClient.getReport({
+    const actual = await xmlClient.getVerdict({
       hash: "afe6b95ad95bc689c356f34ec8d9094c495e4af57c932ac413b65ef132063acc"
     });
 
