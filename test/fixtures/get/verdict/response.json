@@ -1,17 +1,9 @@
 {
   "wildfire": {
-    "get-verdict-info": [
-      {
-        "sha256": [
-          "afe6b95ad95bc689c356f34ec8d9094c495e4af57c932ac413b65ef132063acc"
-        ],
-        "verdict": [
-          "1"
-        ],
-        "md5": [
-          "0e4e3c2d84a9bc726a50b3c91346fbb1"
-        ]
-      }
-    ]
+    "get-verdict-info": {
+      "sha256": "afe6b95ad95bc689c356f34ec8d9094c495e4af57c932ac413b65ef132063acc",
+      "verdict": "1",
+      "md5": "0e4e3c2d84a9bc726a50b3c91346fbb1"
+    }
   }
 }

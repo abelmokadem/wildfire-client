@@ -2,7 +2,9 @@ const request = require("request-promise-native");
 const promisify = require("util.promisify");
 const merge = require("deepmerge");
 const xml2js = require("xml2js");
-const parseXml = promisify(xml2js.parseString.bind(xml2js));
+const parseXml = promisify((value, callback) =>
+  xml2js.parseString(value, { explicitArray: false }, callback)
+);
 
 module.exports = {
   create: ({ apikey, baseUrl, json }) => {
