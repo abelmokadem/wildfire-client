@@ -11,7 +11,7 @@ npm install --save wildfire-client
 ```
 
 ```javascript
-const createWildfireClient = require('wildfire-client').create
+const createWildfireClient = require("wildfire-client").create
 
 const wildfireClient = createWildfireClient({
     apikey: process.env.API_KEY,    // get your own :)
@@ -20,7 +20,8 @@ const wildfireClient = createWildfireClient({
 })
 
 // Promise based client
-wildfireClient.submitUrl({url: 'http://www.pdf995.com/samples/pdf.pdf'})    // /submit/url
+wildfireClient.submitUrl({url: "..."})      // /submit/url
+wildfireClient.getReport({hash: "..."});    // /get/report
 ```
 
 ## Contributing
