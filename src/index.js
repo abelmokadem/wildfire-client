@@ -22,7 +22,8 @@ module.exports = {
 
     return {
       submitUrl: require("./submit/url").bind(null, client),
-      getReport: require("./get/report").bind(null, client)
+      getReport: require("./get/report").bind(null, client),
+      getVerdict: require("./get/verdict").bind(null, client)
     };
   }
 };
