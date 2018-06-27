@@ -20,9 +20,10 @@ const wildfireClient = createWildfireClient({
 })
 
 // Promise based client
-wildfireClient.submitUrl({url: "..."});     // /submit/url
-wildfireClient.getReport({hash: "..."});    // /get/report
-wildfireClient.getVerdict({hash: "..."});   // /get/verdict
+wildfireClient.submitFile({file: "<path_to_file>"});  // /submit/file
+wildfireClient.submitUrl({url: "<url>"});             // /submit/url
+wildfireClient.getReport({hash: "<sha256>"});         // /get/report
+wildfireClient.getVerdict({hash: "<sha256>"});        // /get/verdict
 ```
 
 ## Contributing

@@ -4,7 +4,7 @@ const mkdirp = require("mkdirp");
 const shouldUpdateSnapshot = !!process.env.SNAPSHOT_UPDATE;
 
 module.exports = (t, value, file) => {
-  const filePath = path.join(__dirname, "../fixtures", file);
+  const filePath = path.join(__dirname, "../snapshots", file);
   const formattedValue =
     typeof value === "string" ? value : JSON.stringify(value, null, 2);
   mkdirp.sync(path.dirname(filePath));

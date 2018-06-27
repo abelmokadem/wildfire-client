@@ -1,4 +1,5 @@
-const request = require("request-promise-native");
+const fs = require("fs");
+const request = require("request");
 const promisify = require("util.promisify");
 const merge = require("deepmerge");
 const xml2js = require("xml2js");
@@ -12,18 +13,33 @@ module.exports = {
 
     const client = {
       request: options =>
-        request(
-          merge(options, {
+        new Promise((resolve, reject) => {
+          const requestOptions = merge(options, {
             baseUrl: baseUrl,
             formData: {
               apikey: apikey
             }
-          })
-        ).then(parseResponse)
+          });
+
+          if (requestOptions.formData.file) {
+            requestOptions.formData.file = fs.createReadStream(
+              requestOptions.formData.file
+            );
+          }
+
+          request(requestOptions, (error, response, body) => {
+            if (error) {
+              return reject(response);
+            }
+
+            return resolve(parseResponse(body));
+          });
+        })
     };
 
     return {
       submitUrl: require("./submit/url").bind(null, client),
+      submitFile: require("./submit/file").bind(null, client),
       getReport: require("./get/report").bind(null, client),
       getVerdict: require("./get/verdict").bind(null, client)
     };
