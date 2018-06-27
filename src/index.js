@@ -1,7 +1,5 @@
-const fs = require("fs");
 const request = require("request");
 const promisify = require("util.promisify");
-const merge = require("deepmerge");
 const xml2js = require("xml2js");
 const parseXml = promisify((value, callback) =>
   xml2js.parseString(value, { explicitArray: false }, callback)
@@ -14,20 +12,11 @@ module.exports = {
     const client = {
       request: options =>
         new Promise((resolve, reject) => {
-          const requestOptions = merge(options, {
-            baseUrl: baseUrl,
-            formData: {
-              apikey: apikey
-            }
-          });
+          options.baseUrl = baseUrl;
+          options.formData = options.formData || {};
+          options.formData.apikey = apikey;
 
-          if (requestOptions.formData.file) {
-            requestOptions.formData.file = fs.createReadStream(
-              requestOptions.formData.file
-            );
-          }
-
-          request(requestOptions, (error, response, body) => {
+          request(options, (error, response, body) => {
             if (error) {
               return reject(response);
             }

@@ -1,3 +1,4 @@
+const fs = require("fs");
 const path = require("path");
 const snapshot = require("../lib/snapshot");
 const tape = require("tape");
@@ -8,7 +9,7 @@ tape.test(
   "[json-client] /submit/file: valid pdf should return a proper response",
   async t => {
     const actual = await jsonClient.submitFile({
-      file: path.join(__dirname, "../fixtures/pdf.pdf")
+      file: fs.createReadStream(path.join(__dirname, "../fixtures/pdf.pdf"))
     });
 
     snapshot(t, actual, "submit/file/response.json");
@@ -20,7 +21,7 @@ tape.test(
   "[xml-client] /submit/file: valid pdf should return a proper response",
   async t => {
     const actual = await xmlClient.submitFile({
-      file: path.join(__dirname, "../fixtures/pdf.pdf")
+      file: fs.createReadStream(path.join(__dirname, "../fixtures/pdf.pdf"))
     });
 
     snapshot(t, actual, "submit/file/response.xml");
