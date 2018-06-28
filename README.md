@@ -20,7 +20,7 @@ const wildfireClient = createWildfireClient({
 })
 
 // Promise based client
-wildfireClient.submitFile({file: "<path_to_file>"});  // /submit/file
+wildfireClient.submitFile({file: "<read_stream>"});   // /submit/file
 wildfireClient.submitUrl({url: "<url>"});             // /submit/url
 wildfireClient.getReport({hash: "<sha256>"});         // /get/report
 wildfireClient.getVerdict({hash: "<sha256>"});        // /get/verdict
